@@ -1,4 +1,10 @@
 .App {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100vw;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   text-align: center;
 }
 
@@ -37,6 +43,24 @@
   }
 }
 
-.pizdece {
-  color: #61dafb;
+.body {
+  margin: 0;
+  padding: 0;
+}
+
+.addTask {
+  height: 30vh;
+  border-color: rgb(196, 255, 204);
+  width: 100% display flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.list {
+  height: auto;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding-top: 50px;
+  flex-direction: column;
 }
