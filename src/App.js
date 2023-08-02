@@ -7,10 +7,11 @@ function App() {
   const [generatedExcuse, setGeneratedExcuse] = useState("");
 
   const fetchExcuse = (excuse) => {
-    Axios.get(`https://excuser-three.vercel.app/v1/excuse/${excuse}/`).
-      then((res) => {
+    Axios.get(`https://excuser-three.vercel.app/v1/excuse/${excuse}/`).then(
+      (res) => {
         setGeneratedExcuse(res.data[0].excuse);
-      });
+      }
+    );
   };
 
   return (
@@ -18,7 +19,10 @@ function App() {
       <h1> Generate an excuse </h1>
       <button onClick={() => fetchExcuse("office")}> Office </button>
       <button onClick={() => fetchExcuse("funny")}> Funny </button>
-      <button onClick={() => fetchExcuse("unbelievable")}> Unbelievable </button>
+      <button onClick={() => fetchExcuse("unbelievable")}>
+        {" "}
+        Unbelievable{" "}
+      </button>
 
       <h2>{generatedExcuse}</h2>
     </div>
