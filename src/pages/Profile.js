@@ -9,6 +9,7 @@ export const Profile = (props) => {
   return (
     <div>
       Profile: {username}
+      <ChangeProfile />
     </div>
   );
 };
