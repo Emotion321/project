@@ -8,7 +8,7 @@ export const Profile = (props) => {
 
   return (
     <div>
-      Profile: {username}
+      Profile name: {username}
       <ChangeProfile />
     </div>
   );
