@@ -5,23 +5,29 @@ import { Home } from "./pages/Home";
 import { Profile } from "./pages/Profile";
 import { Contact } from "./pages/Contact";
 import { Navbar } from "./Navbar";
-import React, { useState } from "react";
+import React, { useState, useContext, createContext } from "react";
+
+export const AppContext = createContext();
 
 function App() {
   const [username, setUsername] = useState("LysanderBlake");
   return (
     <div className="App">
-      <Router>
-        <Routes>
-          <Route path="/home" element={<Home username={username} />} />
-          <Route
-            path="/profile"
-            element={<Profile username={username} setUsername={setUsername} />}
-          />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="*" element={<h1>404</h1>} />
-        </Routes>
-      </Router>
+      <AppContext.Provider>
+        <Router>
+          <Routes>
+            <Route path="/home" element={<Home username={username} />} />
+            <Route
+              path="/profile"
+              element={
+                <Profile username={username} setUsername={setUsername} />
+              }
+            />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="*" element={<h1>404</h1>} />
+          </Routes>
+        </Router>
+      </AppContext.Provider>
     </div>
   );
 }
