@@ -13,7 +13,7 @@ function App() {
   const [username, setUsername] = useState("LysanderBlake");
   return (
     <div className="App">
-      <AppContext.Provider>
+      <AppContext.Provider value={{username, setUsername}}>
         <Router>
           <Routes>
             <Route path="/home" element={<Home username={username} />} />
