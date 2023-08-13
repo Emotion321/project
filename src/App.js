@@ -16,11 +16,11 @@ function App() {
       <AppContext.Provider value={{username, setUsername}}>
         <Router>
           <Routes>
-            <Route path="/home" element={<Home username={username} />} />
+            <Route path="/home" element={<Home />} />
             <Route
               path="/profile"
               element={
-                <Profile username={username} setUsername={setUsername} />
+                <Profile />
               }
             />
             <Route path="/contact" element={<Contact />} />
