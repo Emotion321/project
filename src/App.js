@@ -14,7 +14,10 @@ function App() {
       <Router>
         <Routes>
           <Route path="/home" element={<Home username={username} />} />
-          <Route path="/profile" element={<Profile username={username} />} />
+          <Route
+            path="/profile"
+            element={<Profile username={username} setUsername={setUsername} />}
+          />
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<h1>404</h1>} />
         </Routes>

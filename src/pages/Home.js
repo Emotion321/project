@@ -1,5 +1,5 @@
 import React from "react";
 
 export const Home = (props) => {
-    return <h1> {props.username} </h1>
-}
+  return <h1> {props.username} </h1>;
+};
