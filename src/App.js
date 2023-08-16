@@ -15,7 +15,7 @@ function App() {
   const [username, setUsername] = useState("LysanderBlake");
   return (
     <div className="App">
-      <QueryClientProvider>
+      <QueryClientProvider client={client}>
         <AppContext.Provider value={{ username, setUsername }}>
           <Router>
             <Routes>
