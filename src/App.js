@@ -6,7 +6,7 @@ import { Profile } from "./pages/Profile";
 import { Contact } from "./pages/Contact";
 import { Navbar } from "./Navbar";
 import React, { useState, useContext, createContext } from "react";
-import { QueryClient } from "@tanstack/react-query";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 export const AppContext = createContext();
 
