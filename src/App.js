@@ -11,20 +11,22 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 export const AppContext = createContext();
 
 function App() {
-  const client = new QueryClient()
+  const client = new QueryClient();
   const [username, setUsername] = useState("LysanderBlake");
   return (
     <div className="App">
-      <AppContext.Provider value={{ username, setUsername }}>
-        <Router>
-          <Routes>
-            <Route path="/home" element={<Home />} />
-            <Route path="/profile" element={<Profile />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="*" element={<h1>404</h1>} />
-          </Routes>
-        </Router>
-      </AppContext.Provider>
+      <QueryClientProvider>
+        <AppContext.Provider value={{ username, setUsername }}>
+          <Router>
+            <Routes>
+              <Route path="/home" element={<Home />} />
+              <Route path="/profile" element={<Profile />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="*" element={<h1>404</h1>} />
+            </Routes>
+          </Router>
+        </AppContext.Provider>
+      </QueryClientProvider>
     </div>
   );
 }
