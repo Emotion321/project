@@ -1,10 +1,26 @@
-import { useQuery } from '@tanstack/react-query'
+import { useQuery } from "@tanstack/react-query";
 import React from "react";
-import { useContext } from "react";
-import { AppContext } from "../App";
+import Axios from "axios";
 
 export const Home = () => {
-  const {} = useQuery(["cat"]);
-  const { username } = useContext(AppContext)
-  return <h1> {username} </h1>;
+  const { data, isLoading, isError, refetch } = useQuery(["cat"], async () => {
+    const response = await Axios.get("https://catfact.ninja/fact");
+    return response.data;
+  });
+
+  return (
+    <div>
+      {isLoading ? (
+        <p>Loading...</p>
+      ) : isError ? (
+        <p>Error fetching cat fact</p>
+      ) : (
+        <div>
+          <h1>Homepage</h1>
+          <p>{data.fact}</p>
+        </div>
+      )}
+      <button onClick={refetch}>Update</button>
+    </div>
+  );
 };
