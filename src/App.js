@@ -1,4 +1,5 @@
 import "./App.css";
+import { Form } from "./pages/Form";
 import React from "react";
 
 function App() {
