@@ -23,7 +23,7 @@ export const Form = () => {
       .required(),
     confirmPassword: yup
       .string()
-      .oneOf([yup.ref("password"), null])
+      .oneOf([yup.ref("password"), null], "Write down the same password as in the field above")
       .required(),
   });
   const {
