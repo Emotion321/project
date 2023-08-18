@@ -1,21 +1,21 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
 
 export const Form = () => {
   const schema = yup.object().shape({
-    fullName: yup.string().required(),
+    fullName: yup.string().required("Your full name is required"), // Updated error message
     email: yup
       .string()
       .email()
       .required(),
     age: yup
       .number()
-      .positive()
-      .integer()
-      .min(18)
-      .required(),
+      .positive("Age must be a positive number")
+      .integer("Age must be an integer")
+      .min(18, "Age must be at least 18")
+      .required("Age is required"),
     password: yup
       .string()
       .min(8)
@@ -40,19 +40,40 @@ export const Form = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <input type="text" placeholder="Full Name" {...register("fullName")} />
-
-      <p>{errors.fullName}</p>
-      <input type="text" placeholder="Email" {...register("email")} />
-      <input type="number" placeholder="Age" {...register("age")} />
-      <input type="password" placeholder="Password" {...register("password")} />
-      <input
-        type="password"
-        placeholder="Confirm Password"
-        {...register("confirmPassword")}
-      />
+      <div>
+        <input type="text" placeholder="Full Name" {...register("fullName")} />
+        {errors.fullName && <span>{errors.fullName.message}</span>}
+      </div>
+      <div>
+        <input type="text" placeholder="Email" {...register("email")} />
+        {errors.email && <span>{errors.email.message}</span>}
+      </div>
+      <div>
+        <input type="number" placeholder="Age" {...register("age")} />
+        {errors.age && <span>{errors.age.message}</span>}
+      </div>
+      <div>
+        <input
+          type="password"
+          placeholder="Password"
+          {...register("password")}
+        />
+        {errors.password && <span>{errors.password.message}</span>}
+      </div>
+      <div>
+        <input
+          type="password"
+          placeholder="Confirm Password"
+          {...register("confirmPassword")}
+        />
+        {errors.confirmPassword && (
+          <span>{errors.confirmPassword.message}</span>
+        )}
+      </div>
       <br />
-      <input type="submit" />
+      <div>
+        <input type="submit" />
+      </div>
     </form>
   );
 };
