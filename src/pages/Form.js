@@ -14,7 +14,7 @@ export const Form = () => {
       .number()
       .positive("Age must be a positive number")
       .integer("Age must be an integer")
-      .min(18, "Age must be at least 18")
+      .min(18, "Age must be at least 18 or above")
       .required("Age is required"),
     password: yup
       .string()
