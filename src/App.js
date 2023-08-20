@@ -1,11 +1,10 @@
 import "./App.css";
-import { Form } from "./pages/Form";
 import React from "react";
+import { useState } from "react";
 
 function App() {
   return (
     <div className="App">
-      <Form />
     </div>
   )
 }
