@@ -1,8 +1,9 @@
 import "./App.css";
 import React from "react";
+import { useToggle } from "./useToggle";
 
 function App() {
-  const [isVisibl, toggle] = useToggle();
+  const [isVisible, toggle] = useToggle();
 
   return (
     <div className="App">
