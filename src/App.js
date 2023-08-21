@@ -1,6 +1,6 @@
 import "./App.css";
 import React from "react";
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
 function App() {
   const [isVisible, setIsVisible] = useState(false);
