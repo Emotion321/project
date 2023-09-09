@@ -1,10 +1,4 @@
 .App {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  width: 100vw;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   text-align: center;
 }
 
@@ -41,13 +35,4 @@
   to {
     transform: rotate(360deg);
   }
-}
-
-.body {
-  margin: 0;
-  padding: 0;
-}
-
-span {
-  color: red;
 }
