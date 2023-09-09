@@ -1,18 +1,22 @@
 import "./App.css";
 import React from "react";
-import { useToggle } from "./useToggle";
+import { Cat } from "./Cat";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 function App() {
-  const [isVisible, toggle] = useToggle();
-  const [isVisible2, toggle2] = useToggle();
+  const client = new QueryClient({
+    defaultOptions: {
+      queries: {
+        refetchOnWindowFocus: true,
+      },
+    },
+  });
 
   return (
     <div className="App">
-      <button onClick={toggle}>{isVisible ? "Hide" : "Show"}</button>
-      {isVisible && <h2> Hidden Text </h2>}
-
-      <button onClick={toggle2}>{isVisible2 ? "Hide" : "Show"}</button>
-      {isVisible2 && <h2> Hidden Text </h2>}
+      <QueryClientProvider client={client}>
+        <Cat />
+      </QueryClientProvider>
     </div>
   );
 }
