@@ -2,8 +2,7 @@ import { auth, provider } from "../config/firebase";
 import { signInWithPopup } from "firebase/auth";
 
 export const Login = () => {
-
-  const signInWithGoogle = () => {}
+  const signInWithGoogle = () => {};
 
   return (
     <div>
