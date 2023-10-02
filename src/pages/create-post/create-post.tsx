@@ -1,7 +1,11 @@
+import { CreateForm } from "./create-form";
+
 export const CreatePost = () => {
   return (
-    <div>
-      <form></form>
-    </div>
+    <>
+      <form>
+        <CreateForm />
+      </form>
+    </>
   );
 };
