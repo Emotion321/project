@@ -10,17 +10,28 @@ export const Navbar = () => {
     await signOut(auth);
   };
   return (
-    <div>
-      <Link to="/"> Home </Link>
-      <Link to="/login"> Login </Link>
+    <div className="navbar">
+      <div className="links">
+        <Link to="/"> Home </Link>
+        {!user ? (
+          <Link to="/login"> Login </Link>
+        ) : (
+          <Link to="/createpost"> Create post </Link>
+        )}
+      </div>
 
       <div>
         {user && (
-          <>
+          <div className="profile">
             <p> {user?.displayName} </p>
-            <img src={user?.photoURL || ""} width="25" height="25"></img>
+            <img
+              src={user?.photoURL || ""}
+              width="25"
+              height="25"
+              className="profile-img"
+            />
             <button onClick={signUserOut}> Log out </button>{" "}
-          </>
+          </div>
         )}
       </div>
     </div>
